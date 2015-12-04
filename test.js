@@ -77,4 +77,24 @@ describe('AbstractDate', function() {
       assert.equal(json, '2015-12-01T01:23:45.678');
     });
   });
+
+  describe('an instance', function() {
+    it('should be comparable to another AbstractDate instance', function() {
+      let d1 = new AbstractDate('2015-12-01T00:00:00.000');
+      let d2 = new AbstractDate('2015-12-02T00:00:00.000');
+      assert(d1 < d2);
+      assert(d2 > d1);
+      let d3 = new AbstractDate('2015-12-01T00:00:00.000');
+      assert(d1 <= d3);
+    });
+
+    it('should be comparable to a Date instance', function() {
+      let d1 = new AbstractDate('2015-12-01T00:00:00.000');
+      let d2 = new Date('2015-12-02T00:00:00.000');
+      assert(d1 < d2);
+      assert(d2 > d1);
+      let d3 = new Date('2015-12-01T00:00:00.000');
+      assert(d1 <= d3);
+    });
+  });
 });
