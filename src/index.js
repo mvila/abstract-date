@@ -35,6 +35,10 @@ export class AbstractDate {
   toJSON() {
     return this.value;
   }
+
+  valueOf() { // allows comparisons with Date instances
+    return this.toDate().valueOf();
+  }
 }
 
 function stringToDate(str) {
