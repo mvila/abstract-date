@@ -1,18 +1,14 @@
 'use strict';
 
-const VALID_STRING = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d\.\d\d\d$/;
-const VALID_ISO_STRING = /\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ/;
+const VALID_STRING = /^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ?$/;
 
 export class AbstractDate {
   constructor(value) {
     if (typeof value === 'string') {
-      if (VALID_STRING.test(value)) {
-        // NOOP
-      } else if (VALID_ISO_STRING.test(value)) {
-        value = value.slice(0, 10) + ' ' + value.slice(11, 23);
-      } else {
+      if (!VALID_STRING.test(value)) {
         throw new Error('Invalid string passed to AbstractDate constructor');
       }
+      if (value.slice(-1) === 'Z') value = value.slice(0, -1);
       let date = stringToDate(value);
       if (isNaN(date.valueOf())) {
         throw new Error('Invalid string date passed to AbstractDate constructor');
@@ -42,13 +38,12 @@ export class AbstractDate {
 }
 
 function stringToDate(str) {
-  str = str.slice(0, 10) + 'T' + str.slice(11, 23) + 'Z';
   return new Date(str);
 }
 
 function dateToString(date) {
   let str = date.toISOString();
-  str = str.slice(0, 10) + ' ' + str.slice(11, 23);
+  str = str.slice(0, -1); // remove the 'Z' time zone
   return str;
 }
 
