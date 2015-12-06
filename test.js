@@ -27,7 +27,12 @@ describe('AbstractDate', function() {
       });
     });
 
-    it('should accept date', function() {
+    it('should accept numbers', function() {
+      let date = new AbstractDate(1448933025678);
+      assert.equal(date.toString(), '2015-12-01T01:23:45.678');
+    });
+
+    it('should accept dates', function() {
       let date = new AbstractDate(new Date('2015-12-01T01:23:45.678Z'));
       assert.equal(date.toString(), '2015-12-01T01:23:45.678');
     });
@@ -45,10 +50,6 @@ describe('AbstractDate', function() {
 
       assert.throw(function() {
         let date = new AbstractDate(false); // eslint-disable-line no-unused-vars
-      });
-
-      assert.throw(function() {
-        let date = new AbstractDate(1); // eslint-disable-line no-unused-vars
       });
 
       assert.throw(function() {

@@ -11,14 +11,19 @@ export class AbstractDate {
       if (value.slice(-1) === 'Z') value = value.slice(0, -1);
       let date = stringToDate(value);
       if (isNaN(date.valueOf())) {
-        throw new Error('Invalid string date passed to AbstractDate constructor');
+        throw new Error('Invalid string passed to AbstractDate constructor');
       }
+      this.value = value;
+    } else if (typeof value === 'number') {
+      value = new Date(value);
+      value = dateToString(value);
       this.value = value;
     } else if (value instanceof Date) {
       if (isNaN(value.valueOf())) {
         throw new Error('Invalid date passed to AbstractDate constructor');
       }
-      this.value = dateToString(value);
+      value = dateToString(value);
+      this.value = value;
     } else {
       throw new Error('Invalid type passed to AbstractDate constructor');
     }
