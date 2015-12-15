@@ -1,6 +1,7 @@
 'use strict';
 
 import { assert } from 'chai';
+import { cloneDeep } from 'better-clone';
 import AbstractDate from './src';
 
 describe('AbstractDate', function() {
@@ -96,6 +97,25 @@ describe('AbstractDate', function() {
       assert(d2 > d1);
       let d3 = new Date('2015-12-01T00:00:00.000');
       assert(d1 <= d3);
+    });
+  });
+
+  describe('clone()', function() {
+    it('should return an identical abstract date', function() {
+      let date1 = new AbstractDate('2015-12-01T01:23:45.678');
+      let date2 = date1.clone();
+      assert.instanceOf(date2, AbstractDate);
+      assert.equal(date2.valueOf(), date1.valueOf());
+    });
+
+    it('should be invoked by the better-clone module', function() {
+      let event1 = {
+        name: 'Party',
+        date: new AbstractDate('2015-12-01T01:23:45.678')
+      };
+      let event2 = cloneDeep(event1);
+      assert.instanceOf(event2.date, AbstractDate);
+      assert.equal(event2.date.valueOf(), event1.date.valueOf());
     });
   });
 });

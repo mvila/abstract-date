@@ -1,5 +1,7 @@
 'use strict';
 
+import { customClone } from 'better-clone';
+
 const VALID_STRING = /^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ?$/;
 
 export class AbstractDate {
@@ -43,6 +45,14 @@ export class AbstractDate {
 
   valueOf() { // allows comparisons with Date instances
     return this.toDate().valueOf();
+  }
+
+  clone() {
+    return this;
+  }
+
+  [customClone]() {
+    return this.clone();
   }
 }
 
