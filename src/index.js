@@ -47,7 +47,7 @@ export class AbstractDate {
 }
 
 function stringToDate(str) {
-  return new Date(str);
+  return new Date(str + 'Z');
 }
 
 function dateToString(date) {
