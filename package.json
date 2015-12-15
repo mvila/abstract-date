@@ -1,6 +1,6 @@
 {
   "name": "abstract-date",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Time zone independent date/time class",
   "author": "Manuel Vila <mvila@3base.com>",
   "license": "MIT",
