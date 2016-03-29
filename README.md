@@ -11,7 +11,7 @@ npm install --save abstract-date
 ## Usage
 
 ```javascript
-// TODO
+// TODO: Documentation! In the meantime, have a look to test.js.
 ```
 
 ## License
