@@ -2,6 +2,14 @@
   "name": "abstract-date",
   "version": "0.2.5",
   "description": "Time zone independent date/time class",
+  "keywords": [
+    "abstract",
+    "date",
+    "independent",
+    "absolute",
+    "time zone",
+    "class"
+  ],
   "author": "Manuel Vila <mvila@3base.com>",
   "license": "MIT",
   "main": "lib/index.js",
