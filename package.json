@@ -1,6 +1,6 @@
 {
   "name": "abstract-date",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Time zone independent date/time class",
   "keywords": [
     "abstract",
