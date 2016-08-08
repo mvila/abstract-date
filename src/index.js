@@ -26,6 +26,8 @@ export class AbstractDate {
       }
       value = dateToString(value);
       this.value = value;
+    } else if (value instanceof AbstractDate) {
+      this.value = value.value;
     } else {
       throw new Error('Invalid type passed to AbstractDate constructor');
     }

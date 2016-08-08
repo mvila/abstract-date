@@ -44,6 +44,12 @@ describe('AbstractDate', function() {
       });
     });
 
+    it('should accept abstract dates', function() {
+      let abstractDate = new AbstractDate('2015-12-01T01:23:45.678');
+      let date = new AbstractDate(abstractDate);
+      assert.equal(date.toString(), '2015-12-01T01:23:45.678');
+    });
+
     it('should throw an error for invalid type', function() {
       assert.throw(function() {
         let date = new AbstractDate(undefined); // eslint-disable-line no-unused-vars
