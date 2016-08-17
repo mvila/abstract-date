@@ -1,6 +1,6 @@
 {
   "name": "abstract-date",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Time zone independent date/time class",
   "keywords": [
     "abstract",
@@ -12,7 +12,9 @@
   ],
   "author": "Manuel Vila <mvila@3base.com>",
   "license": "MIT",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "main": "lib/index.js",
   "repository": {
     "type": "git",
